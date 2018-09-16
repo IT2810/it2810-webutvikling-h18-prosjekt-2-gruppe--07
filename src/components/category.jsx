@@ -13,6 +13,7 @@ class Category extends Component {
   }
 
   render() {
+
     return (
       <div id="controllerDiv">
         <form>
@@ -53,28 +54,11 @@ class Category extends Component {
 
   handleOptionChange(changeEvent) {
     
-    let value;
-    
-
-    switch(changeEvent.target.value) {
-      case "summer":
-        value = this.props.data['summer'][this.props.index];
-        break;
-      case "winter":
-        value = this.props.data['winter'][this.props.index];
-        break;
-      case "autumn":
-        value = this.props.data['autumn'][this.props.index];
-        break;
-    }
-
-    console.log(value);
-
     this.setState({
       selectedOption: changeEvent.target.value,
     });
 
-    this.props.onChange(value);
+    this.props.onChange(changeEvent.target.value);
   }
 }
 
