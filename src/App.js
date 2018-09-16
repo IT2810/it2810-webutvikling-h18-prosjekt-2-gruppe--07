@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
+
 import summer1 from './images/summer1.jpg'; 
 import winter1 from './images/winter1.jpg';
 import autumn1 from './images/autumn1.jpg';
+import summer2 from './images/summer2.jpg'; 
+import winter2 from './images/winter2.jpg';
+import autumn2 from './images/autumn2.jpg';
+import summer3 from './images/summer3.jpg'; 
+import winter3 from './images/winter3.jpg';
+import autumn3 from './images/autumn3.jpg';
+import summer4 from './images/summer4.jpg'; 
+import winter4 from './images/winter4.jpg';
+import autumn4 from './images/autumn4.jpg';
+
 import './App.css';
 import Navbar from "./components/navbar";
 import Category from "./components/category";
 
-const summerPoems = ["summer1 poem", "summer2 poem", "summer3 poem"];
-const winterPoems = ["winter1 poem", "winter2 poem", "winter3 poem"];
-const autumnPoems = ["autumn1 poem", "autumn2 poem", "autumn3 poem"];
+const summerPoems = ["summer1 poem", "summer2 poem", "summer3 poem", "summer4 poem"];
+const winterPoems = ["winter1 poem", "winter2 poem", "winter3 poem", "winter4 poem"];
+const autumnPoems = ["autumn1 poem", "autumn2 poem", "autumn3 poem", "autumn4 poem"];
 
 const poems = {
   'summer' : summerPoems,
@@ -18,13 +29,13 @@ const poems = {
 
 const images = {
   'summer': [
-    summer1,
+    summer1, summer2, summer3, summer4,
   ],
   'winter': [
-    winter1,
+    winter1, winter2, winter3, winter4,
   ],
   'autumn': [
-    autumn1,
+    autumn1, autumn2, autumn3, autumn4,
   ]
 };
 
@@ -66,7 +77,7 @@ class App extends Component {
           </audio>
         </div>
         <div className="categories">
-          <Category onChange={this.setImageSeason} /> <br />
+          <Category onChange={this.setImageSeason} />Bilde<br />
           <Category onChange={this.setPoemSeason}/> <br />
           <Category />
         </div>
