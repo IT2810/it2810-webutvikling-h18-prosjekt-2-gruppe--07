@@ -52,3 +52,8 @@
     grid-template-columns: 100%;
   }
 }
+
+
+.contentImage > img {
+  width: 500px;
+}
