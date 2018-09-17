@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Poem from './components/poem';
+//import Poem from './components/poem';
 
 import summer1 from './images/summer1.jpg';
 import winter1 from './images/winter1.jpg';
@@ -15,9 +15,12 @@ import summer4 from './images/summer4.jpg';
 import winter4 from './images/winter4.jpg';
 import autumn4 from './images/autumn4.jpg';
 
+
+
 import './App.css';
 import Navbar from "./components/navbar";
 import Category from "./components/category";
+import Content from './components/content';
 
 const images = {
   'summer': [
@@ -31,6 +34,7 @@ const images = {
   ]
 };
 
+
 class App extends Component {
 
   constructor(props) {
@@ -39,17 +43,17 @@ class App extends Component {
     this.setImageSeason = this.setImageSeason.bind(this);
     this.setPoemSeason = this.setPoemSeason.bind(this);
     this.setTab = this.setTab.bind(this);
+    this.setAudioSeason = this.setAudioSeason.bind(this);
 
     this.state = {
       selectedTab: 0,
       imageSeason: 'summer',
       poemSeason: 'summer',
+      audioSeason: 'summer',
       poems: []
     }
   }
 
-  
-  
   
   // this method is called only once after page load 
   async componentWillMount() {
@@ -74,38 +78,35 @@ class App extends Component {
           <img src={images[this.state.imageSeason][this.state.selectedTab]} alt="Dette er bildet" />
         </div>
         <div className="contentText">
+          {this.state.poems.map(poem => (
+                <span key={poem.id}>
+                  <h1>{poem.title}</h1>
+                  <p>{poem.body}</p>
+                  <p>{this.props.data}</p>
+                </span>
+              ))}
+        </div>
         
-        {this.state.poems.map(poem => (
-              <span key={poem.id}>
-                <h1>{poem.title}</h1>
-                <p>{poem.body}</p>
-                <p>{this.props.data}</p>
-              </span>
-            ))}
-    
-        </div>
-        <div className="contentAudio">
-          <audio controls>
-            <source src="test.mp3" type="audio/mpeg" />
-            Your browser does not support this element.
-          </audio>
-        </div>
+        <Content audioSeason={this.state.audioSeason} tabId={this.state.selectedTab} />
+
         <div className="categories">
-          <Category onChange={this.setImageSeason} />Bilde<br />
-          <h1>Text</h1>
+          <h2>Image</h2>
+          <Category onChange={this.setImageSeason} /><br />
+          <h2>Text</h2>
           <Category onChange={this.setPoemSeason} /> <br />
-          <Category />
+          <h2>Audio</h2>
+          <Category onChange={this.setAudioSeason} />
         </div>
       </main>
     );
   }
 
+  // Sets state for season (summer, winter, autumn)
   setImageSeason(season) {
     this.setState({
       imageSeason: season,
     })
   }
-
   setPoemSeason(season) {
     this.setState({
       poemSeason: season,
@@ -117,7 +118,13 @@ class App extends Component {
         this.setState({ poems });
       })
   }
+  setAudioSeason(season) {
+    this.setState({
+      audioSeason: season,
+    })
+  }
 
+// Sets tab index (0-3)
   setTab(tab) {
     this.setState({
       selectedTab: tab,
