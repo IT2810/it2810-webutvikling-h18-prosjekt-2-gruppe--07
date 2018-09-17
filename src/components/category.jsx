@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class Category extends Component {
 
+
   constructor(props) {
     super(props);
 
@@ -34,6 +35,7 @@ class Category extends Component {
                 value="autumn"
                 checked={this.state.selectedOption === 'autumn'}
                 onChange={this.handleOptionChange} />
+
               Autumn
             </label>
           </div>
@@ -44,6 +46,8 @@ class Category extends Component {
                 value="winter"
                 checked={this.state.selectedOption === 'winter'}
                 onChange={this.handleOptionChange} />
+
+             
               Winter
             </label>
           </div>
