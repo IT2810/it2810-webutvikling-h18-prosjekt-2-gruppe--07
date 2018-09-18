@@ -1,51 +1,50 @@
 import React, { Component } from "react";
 
 class Category extends Component {
-
-
   constructor(props) {
     super(props);
 
     this.handleOptionChange = this.handleOptionChange.bind(this);
 
     this.state = {
-      selectedOption: 'summer',
-    }
+      selectedOption: "summer"
+    };
   }
 
   render() {
-
     return (
-      <div id="controllerDiv">
+      <div>
         <form>
           <div className="radio">
             <label>
-              <input 
-                type="radio" 
-                value="summer" 
-                checked={this.state.selectedOption === 'summer'}
-                onChange={this.handleOptionChange}/>
+              <input
+                type="radio"
+                value="summer"
+                checked={this.state.selectedOption === "summer"}
+                onChange={this.handleOptionChange}
+              />
               Summer
             </label>
           </div>
           <div className="radio">
             <label>
-              <input 
-                type="radio" 
+              <input
+                type="radio"
                 value="autumn"
-                checked={this.state.selectedOption === 'autumn'}
-                onChange={this.handleOptionChange} />
-
+                checked={this.state.selectedOption === "autumn"}
+                onChange={this.handleOptionChange}
+              />
               Autumn
             </label>
           </div>
           <div className="radio">
             <label>
-              <input 
-                type="radio" 
+              <input
+                type="radio"
                 value="winter"
-                checked={this.state.selectedOption === 'winter'}
-                onChange={this.handleOptionChange} />
+                checked={this.state.selectedOption === "winter"}
+                onChange={this.handleOptionChange}
+              />
               Winter
             </label>
           </div>
@@ -55,9 +54,8 @@ class Category extends Component {
   }
 
   handleOptionChange(changeEvent) {
-    
     this.setState({
-      selectedOption: changeEvent.target.value,
+      selectedOption: changeEvent.target.value
     });
 
     this.props.onChange(changeEvent.target.value);

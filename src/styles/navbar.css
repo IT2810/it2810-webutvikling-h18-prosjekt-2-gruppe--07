@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.topnav a {
+.topnav button {
   float: left;
   display: block;
   color: #f2f2f2;
@@ -16,9 +16,11 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  background-color: black;
+  border: 2px white;
 }
 
-.topnav a:hover {
+.topnav button:hover {
   background-color: #ddd;
   color: black;
 }
