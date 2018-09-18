@@ -6,7 +6,6 @@ import Navbar from "./components/navbar";
 import Category from "./components/category";
 import Content from "./components/content";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +25,7 @@ class App extends Component {
     };
   }
 
-  // loads text and picture the first time the page loads 
+  // loads text and picture the first time the page loads
   async componentWillMount() {
     let url = "/text/summer/" + this.state.selectedTab + ".json";
     axios.get(url).then(res => {
@@ -37,7 +36,7 @@ class App extends Component {
     let imageUrl = "/img/summer/" + this.state.selectedTab + ".svg";
     axios.get(imageUrl).then(res => {
       let svgURL = res.data;
-      this.setState( { svgURL});
+      this.setState({ svgURL });
     });
   }
 
@@ -47,25 +46,31 @@ class App extends Component {
         <div className="title">
           <h1>Kunstutstilling</h1>
         </div>
-        <div className="navbar" id="navbar">
+        <div className="navbar">
           <Navbar onChange={this.setTab} />
         </div>
-       
+
         <Content
-          svgURL ={this.state.svgURL}
+          svgURL={this.state.svgURL}
           poems={this.state.poems}
           audioSeason={this.state.audioSeason}
           tabId={this.state.selectedTab}
         />
 
         <div className="categories">
-          <h2>Image</h2>
-          <Category onChange={this.setImageSeason} />
-          <br />
-          <h2>Text</h2>
-          <Category onChange={this.setPoemSeason} /> <br />
-          <h2>Audio</h2>
-          <Category onChange={this.setAudioSeason} />
+          <div className="flexCategories">
+            <h2>Image</h2>
+            <Category onChange={this.setImageSeason} />
+            <br />
+          </div>
+          <div className="flexCategories">
+            <h2>Text</h2>
+            <Category onChange={this.setPoemSeason} /> <br />
+          </div>
+          <div className="flexCategories">
+            <h2>Audio</h2>
+            <Category onChange={this.setAudioSeason} />
+          </div>
         </div>
       </main>
     );
@@ -79,7 +84,7 @@ class App extends Component {
     let url = "/img/" + season + "/" + this.state.selectedTab + ".svg";
     axios.get(url).then(res => {
       let svgURL = res.data;
-      this.setState( { svgURL});
+      this.setState({ svgURL });
     });
   }
 
