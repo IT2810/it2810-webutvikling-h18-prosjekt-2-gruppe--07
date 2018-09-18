@@ -27,6 +27,7 @@ export default class Content extends Component {
   render() {
     return (
       <div>
+        <div className="contentImage" dangerouslySetInnerHTML={{__html: this.props.svgURL}}/>
         <div className="contentText">
           {this.props.poems.map(poem => (
             <span key={poem.id}>

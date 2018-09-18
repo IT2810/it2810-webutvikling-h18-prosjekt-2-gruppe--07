@@ -46,8 +46,6 @@ class Category extends Component {
                 value="winter"
                 checked={this.state.selectedOption === 'winter'}
                 onChange={this.handleOptionChange} />
-
-             
               Winter
             </label>
           </div>

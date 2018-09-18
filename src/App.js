@@ -1,30 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-//import Poem from './components/poem';
-
-import summer1 from "./images/summer1.jpg";
-import winter1 from "./images/winter1.jpg";
-import autumn1 from "./images/autumn1.jpg";
-import summer2 from "./images/summer2.jpg";
-import winter2 from "./images/winter2.jpg";
-import autumn2 from "./images/autumn2.jpg";
-import summer3 from "./images/summer3.jpg";
-import winter3 from "./images/winter3.jpg";
-import autumn3 from "./images/autumn3.jpg";
-import summer4 from "./images/summer4.jpg";
-import winter4 from "./images/winter4.jpg";
-import autumn4 from "./images/autumn4.jpg";
 
 import "./App.css";
 import Navbar from "./components/navbar";
 import Category from "./components/category";
 import Content from "./components/content";
 
-const images = {
-  summer: [summer1, summer2, summer3, summer4],
-  winter: [winter1, winter2, winter3, winter4],
-  autumn: [autumn1, autumn2, autumn3, autumn4]
-};
 
 class App extends Component {
   constructor(props) {
@@ -40,16 +21,23 @@ class App extends Component {
       imageSeason: "summer",
       poemSeason: "summer",
       audioSeason: "summer",
-      poems: []
+      poems: [],
+      svgURL: ""
     };
   }
 
-  // this method is called only once after page load
+  // loads text and picture the first time the page loads 
   async componentWillMount() {
     let url = "/text/summer/" + this.state.selectedTab + ".json";
     axios.get(url).then(res => {
       let poems = res.data;
       this.setState({ poems });
+    });
+
+    let imageUrl = "/img/summer/" + this.state.selectedTab + ".svg";
+    axios.get(imageUrl).then(res => {
+      let svgURL = res.data;
+      this.setState( { svgURL});
     });
   }
 
@@ -62,13 +50,9 @@ class App extends Component {
         <div className="navbar" id="navbar">
           <Navbar onChange={this.setTab} />
         </div>
-        <div className="contentImage">
-          <img
-            src={images[this.state.imageSeason][this.state.selectedTab]}
-            alt="Dette er bildet"
-          />
-        </div>
+       
         <Content
+          svgURL ={this.state.svgURL}
           poems={this.state.poems}
           audioSeason={this.state.audioSeason}
           tabId={this.state.selectedTab}
@@ -92,7 +76,13 @@ class App extends Component {
     this.setState({
       imageSeason: season
     });
+    let url = "/img/" + season + "/" + this.state.selectedTab + ".svg";
+    axios.get(url).then(res => {
+      let svgURL = res.data;
+      this.setState( { svgURL});
+    });
   }
+
   setPoemSeason(season) {
     this.setState({
       poemSeason: season
@@ -103,6 +93,7 @@ class App extends Component {
       this.setState({ poems });
     });
   }
+
   setAudioSeason(season) {
     this.setState({
       audioSeason: season
@@ -118,6 +109,11 @@ class App extends Component {
     axios.get(url).then(res => {
       let poems = res.data;
       this.setState({ poems });
+    });
+    let imageUrl = "/img/" + this.state.imageSeason + "/" + tab + ".svg";
+    axios.get(imageUrl).then(res => {
+      let svgURL = res.data;
+      this.setState({ svgURL });
     });
   }
 }
