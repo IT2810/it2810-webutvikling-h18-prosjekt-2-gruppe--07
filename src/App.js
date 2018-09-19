@@ -43,8 +43,8 @@ class App extends Component {
   render() {
     return (
       <main className="grid-container-all">
-        <div className="title">
-          <h1>Kunstutstilling</h1>
+        <div className="header">
+          <h1>Three seasons</h1>
         </div>
         <div className="navbar">
           <Navbar onChange={this.setTab} />

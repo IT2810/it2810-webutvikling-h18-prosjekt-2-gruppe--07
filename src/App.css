@@ -1,21 +1,36 @@
 /* grid layout for the overall page */
+body {
+  background: #F4F4F4;
+  font-family: "Verdana", Geneva, sans-serif;
+}
 
-.title {
+.header {
   grid-area: title;
-  justify-self: center;
+  text-align: center;
+  width: 100%;
+  background: white;
+  padding-bottom: 40px;
+
+}
+p {
+  color:  #373737;
 }
 
 h1 {
   margin-bottom: 0px;
+  color:  #373737;
 }
 
 h2 {
   margin-bottom: 10px;
+  color: #373737;
+  font-size: 17px;
 }
 
 .navbar {
   grid-area: nav;
-  background-color: black;
+  background: #373737;
+  width: 100%;
 }
 
 .contentAll {
@@ -25,15 +40,17 @@ h2 {
     "img text"
     ". audio";
   grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
 }
 
 .contentImage {
   grid-area: img;
+
 }
 
 .contentText {
   grid-area: text;
+  margin: auto;
 }
 
 .contentAudio {
@@ -43,6 +60,8 @@ h2 {
 .categories {
   grid-area: menu;
   justify-self: center;
+  padding: 20px;
+  padding-top: 50px;
 }
 
 .grid-container-all {
@@ -52,7 +71,11 @@ h2 {
     "nav nav nav"
     "content content menu";
   grid-template-columns: 2fr 2fr 1fr;
-  grid-gap: 50px;
+
+}
+
+.radio {
+color: #373737;
 }
 
 /* layout for the page after breakpoint 600px (mobile phones) */
@@ -62,10 +85,10 @@ h2 {
     grid-template-areas:
       "title"
       "nav"
-      "content"
-      "menu";
+      "menu"
+      "content";
     grid-template-columns: 100%;
-    grid-gap: 20px;
+    grid-gap: 0;
   }
   .contentAll {
     grid-template-areas:
@@ -79,6 +102,8 @@ h2 {
     display: flex;
     justify-content: space-evenly;
     justify-self: auto;
+    padding-top: 0;
+  
   }
 
   .contentAudio {
@@ -94,4 +119,7 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+
+
 }

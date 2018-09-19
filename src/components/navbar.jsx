@@ -7,10 +7,10 @@ class Navbar extends Component {
   render() {
     return (
       <div className="topnav" id="topnav">
-        <button onClick={() => this.props.onChange(0)}>Kombo 1</button>
-        <button onClick={() => this.props.onChange(1)}>Kombo 2</button>
-        <button onClick={() => this.props.onChange(2)}>Kombo 3</button>
-        <button onClick={() => this.props.onChange(3)}>Kombo 4</button>
+        <button onClick={() => this.props.onChange(0)}>Display I</button>
+        <button onClick={() => this.props.onChange(1)}>Display II</button>
+        <button onClick={() => this.props.onChange(2)}>Display III</button>
+        <button onClick={() => this.props.onChange(3)}>Display IV</button>
       </div>
     );
   }

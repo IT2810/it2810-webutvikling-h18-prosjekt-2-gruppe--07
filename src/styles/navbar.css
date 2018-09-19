@@ -1,7 +1,7 @@
-/* this navbar css is borrowed from W3 schools */
+/* this navbar css is borrowed from W3 schools with modification */
 
 .topnav {
-  background-color: black;
+  background: #373737;
   overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
@@ -11,16 +11,16 @@
 .topnav button {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #DCD0C0;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  background-color: black;
-  border: 2px white;
+  background: #373737;
+  border: none;
 }
 
 .topnav button:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #DCD0C0;
+  color: #373737;
 }
