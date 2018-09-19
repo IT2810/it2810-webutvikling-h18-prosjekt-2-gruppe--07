@@ -6,6 +6,8 @@ import Navbar from "./components/navbar";
 import Category from "./components/category";
 import Content from "./components/content";
 
+const projectDir = "/prosjekt2";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ class App extends Component {
 
   // fetch json file or retrieve from sessionStorage if already fetched
   fetchText(poemSeason, tab) {
-    let url = "/text/" + poemSeason + "/" + tab + ".json";
+    let url = projectDir + "/text/" + poemSeason + "/" + tab + ".json";
     if (sessionStorage.getItem(url) === null) {
       axios
         .get(url)
@@ -54,7 +56,7 @@ class App extends Component {
 
   // fetch svg file or retrieve from sessionStorage if already fetched
   fetchImage(imageSeason, tab) {
-    let imageUrl = "/img/" + imageSeason + "/" + tab + ".svg";
+    let imageUrl = projectDir + "/img/" + imageSeason + "/" + tab + ".svg";
     if (sessionStorage.getItem(imageUrl) === null) {
       axios
         .get(imageUrl)

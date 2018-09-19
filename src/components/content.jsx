@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+const projectDir = "/prosjekt2";
+
 export default class Content extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,7 @@ export default class Content extends Component {
   // Get source url for audio
   getSourceUrl() {
     return (
+      projectDir + 
       "/audio/" +
       this.props.audioSeason +
       "/" +
