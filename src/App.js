@@ -25,19 +25,53 @@ class App extends Component {
     };
   }
 
-  // loads text and picture the first time the page loads
-  async componentWillMount() {
-    let url = "/text/summer/" + this.state.selectedTab + ".json";
-    axios.get(url).then(res => {
-      let poems = res.data;
-      this.setState({ poems });
-    });
+  // loads picture and text immediately after first render
+  componentDidMount() {
+    // check if data exists, only load if not
+    this.fetchText(this.state.poemSeason, this.state.selectedTab);
+    this.fetchImage(this.state.imageSeason, this.state.selectedTab);
+  }
 
-    let imageUrl = "/img/summer/" + this.state.selectedTab + ".svg";
-    axios.get(imageUrl).then(res => {
-      let svgURL = res.data;
+  fetchText(poemSeason, tab) {
+    let url = "/text/" + poemSeason + "/" + tab + ".json";
+    // check if poem is stored in sessionStorage
+    // if not, fetch
+    if (sessionStorage.getItem(url) === null) {
+      axios
+        .get(url)
+        .then(res => {
+          let poems = res.data;
+          this.setState({ poems });
+          sessionStorage.setItem(url, JSON.stringify(poems));
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+      // retrieve poem from sessionStorage
+    } else {
+      this.setState({
+        poems: JSON.parse(sessionStorage.getItem(url))
+      });
+    }
+  }
+
+  fetchImage(imageSeason, tab) {
+    let imageUrl = "/img/" + imageSeason + "/" + tab + ".svg";
+    if (sessionStorage.getItem(imageUrl) === null) {
+      axios
+        .get(imageUrl)
+        .then(res => {
+          let svgURL = res.data;
+          this.setState({ svgURL });
+          sessionStorage.setItem(imageUrl, svgURL);
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    } else {
+      let svgURL = sessionStorage.getItem(imageUrl);
       this.setState({ svgURL });
-    });
+    }
   }
 
   render() {
@@ -81,22 +115,14 @@ class App extends Component {
     this.setState({
       imageSeason: season
     });
-    let url = "/img/" + season + "/" + this.state.selectedTab + ".svg";
-    axios.get(url).then(res => {
-      let svgURL = res.data;
-      this.setState({ svgURL });
-    });
+    this.fetchImage(season, this.state.selectedTab);
   }
 
   setPoemSeason(season) {
     this.setState({
       poemSeason: season
     });
-    let url = "/text/" + season + "/" + this.state.selectedTab + ".json";
-    axios.get(url).then(res => {
-      let poems = res.data;
-      this.setState({ poems });
-    });
+    this.fetchText(season, this.state.selectedTab);
   }
 
   setAudioSeason(season) {
@@ -110,16 +136,8 @@ class App extends Component {
     this.setState({
       selectedTab: tab
     });
-    let url = "/text/" + this.state.poemSeason + "/" + tab + ".json";
-    axios.get(url).then(res => {
-      let poems = res.data;
-      this.setState({ poems });
-    });
-    let imageUrl = "/img/" + this.state.imageSeason + "/" + tab + ".svg";
-    axios.get(imageUrl).then(res => {
-      let svgURL = res.data;
-      this.setState({ svgURL });
-    });
+    this.fetchText(this.state.poemSeason, tab);
+    this.fetchImage(this.state.imageSeason, tab);
   }
 }
 
