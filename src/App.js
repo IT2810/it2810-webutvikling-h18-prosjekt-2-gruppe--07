@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <main className="grid-container-all">
         <div className="header">
-          <h1>Kunstutstilling</h1>
+          <h1>Three seasons</h1>
         </div>
         <div className="navbar">
           <Navbar onChange={this.setTab} />
