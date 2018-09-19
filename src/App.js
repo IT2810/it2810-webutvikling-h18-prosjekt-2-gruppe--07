@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import "./App.css";
+import "./styles/App.css";
 import Navbar from "./components/navbar";
 import Category from "./components/category";
 import Content from "./components/content";
@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <main className="grid-container-all">
         <div className="header">
-          <h1>Three seasons</h1>
+          <h1>Kunstutstilling</h1>
         </div>
         <div className="navbar">
           <Navbar onChange={this.setTab} />
