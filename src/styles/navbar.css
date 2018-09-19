@@ -23,4 +23,5 @@
 .topnav button:hover {
   background-color: #DCD0C0;
   color: #373737;
+  cursor: pointer;
 }

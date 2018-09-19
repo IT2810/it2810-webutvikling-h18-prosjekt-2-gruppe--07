@@ -41,7 +41,7 @@ export default class Content extends Component {
           ))}
         </div>
         <div className="contentAudio">
-          <audio controls autoPlay ref={this.audioRef}>
+          <audio controls ref={this.audioRef}>
             <source src={this.getSourceUrl()} type="audio/mpeg" />
             Your browser does not support this element.
           </audio>

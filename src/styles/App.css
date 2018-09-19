@@ -4,10 +4,11 @@
   grid-area: title;
   text-align: center;
   width: 100%;
-  background: white;
-  padding-bottom: 40px;
-
+  background-color: white;
+  padding-bottom: 2em;
+  margin: auto;
 }
+
 p {
   color:  #373737;
 }
@@ -71,7 +72,7 @@ h2 {
 }
 
 .radio {
-color: #373737;
+  color: #373737;
 }
 
 /* layout for the page after breakpoint 600px (mobile phones) */

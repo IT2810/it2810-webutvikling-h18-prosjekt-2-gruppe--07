@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import "./App.css";
+import "./styles/App.css";
 import Navbar from "./components/navbar";
 import Category from "./components/category";
 import Content from "./components/content";
