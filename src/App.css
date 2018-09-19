@@ -1,8 +1,4 @@
 /* grid layout for the overall page */
-body {
-  background: #F4F4F4;
-  font-family: "Verdana", Geneva, sans-serif;
-}
 
 .header {
   grid-area: title;
@@ -50,7 +46,7 @@ h2 {
 
 .contentText {
   grid-area: text;
-  margin: auto;
+  margin-top: 30px;
 }
 
 .contentAudio {
