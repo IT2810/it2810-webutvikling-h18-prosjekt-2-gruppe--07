@@ -34,24 +34,18 @@ h2 {
   grid-area: content;
   display: grid;
   grid-template-areas:
-    "img text"
-    ". audio";
+    "img textAndAudio";
   grid-gap: 20px;
   grid-template-columns: 1.5fr 1fr;
 }
 
-.contentImage {
-  grid-area: img;
-
-}
-
-.contentText {
-  grid-area: text;
-  margin-top: 30px;
+.contentTextAndAudio {
+  grid-area: textAndAudio;
+  margin-top: 2em;
 }
 
 .contentAudio {
-  grid-area: audio;
+  margin-top: 2em;
 }
 
 .categories {
@@ -87,12 +81,13 @@ h2 {
     grid-template-columns: 100%;
     grid-gap: 0;
   }
+
   .contentAll {
     grid-template-areas:
       "img"
-      "text"
-      "audio";
+      "textAndAudio";
     grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
   }
 
   .categories {
@@ -105,10 +100,11 @@ h2 {
 
   .contentAudio {
     justify-self: center;
+    margin-top: 0;
   }
-
-  .contentText {
-    padding: 0px 15px 0px;
+  
+  .contentTextAndAudio {
+    margin-top: 0;
   }
 
   .navbar {
@@ -117,6 +113,8 @@ h2 {
     justify-content: center;
   }
 
-
-
+  #poemTitle {
+    margin: 0;
+  }
+  
 }

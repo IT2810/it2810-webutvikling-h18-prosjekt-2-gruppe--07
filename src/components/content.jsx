@@ -34,20 +34,22 @@ export default class Content extends Component {
           className="contentImage"
           dangerouslySetInnerHTML={{ __html: this.props.svgURL }}
         />
-        <div className="contentText">
-          {this.props.poems.map(poem => (
-            <span key={poem.id}>
-              <h1>{poem.title}</h1>
-              <p>{poem.body}</p>
-              <p>{this.props.data}</p>
-            </span>
-          ))}
-        </div>
-        <div className="contentAudio">
-          <audio controls ref={this.audioRef}>
-            <source src={this.getSourceUrl()} type="audio/mpeg" />
-            Your browser does not support this element.
-          </audio>
+        <div className="contentTextAndAudio">
+          <div className="contentText">
+            {this.props.poems.map(poem => (
+              <span key={poem.id}>
+                <h1 id="poemTitle">{poem.title}</h1>
+                <p>{poem.body}</p>
+                <p>{this.props.data}</p>
+              </span>
+            ))}
+            <div className="contentAudio">
+              <audio controls ref={this.audioRef}>
+                <source src={this.getSourceUrl()} type="audio/mpeg" />
+                Your browser does not support this element.
+              </audio>
+            </div>
+          </div>
         </div>
       </div>
     );
