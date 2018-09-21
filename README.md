@@ -1,5 +1,5 @@
-# IT2810 Project 2 Group 7 
-:sparkles: :sparkles: :sparkles:
+# IT2810 Prosjekt 2 - Gruppe 7 :sparkles: :sparkles: :sparkles:
+
 ## Innhold og funksjonalitet
 Siden vår er en kunstutstilling der hver visning består av et bilde, et dikt og en melodi. Til høyre på siden (i fullscreen) kan bruker endre bildene, diktene og melodiene basert på tre kategorier: sommer, høst og vinter. Hvis f.eks. bruker velger Winter under Image, vil bildet byttes ut med et vinterbilde. For hver endring som gjøres i kategoriene vil det finnes 4 forskjellige visninger. Disse vil man kunne navigere mellom i toppmenyen.
 
@@ -12,7 +12,7 @@ Design/layout er inspirert av layouten vi fikk tildelt, med noen endringer. Side
 ### React
 Løsningen er en React Single Page Application (SPA) som bruker ES6. Vi har valgt å bruke den følgende komponentstrukturen:
 
-**TO-DO: Sett inn bilde av komponentstrukturen**
+![screen shot 2018-09-21 at 18 49 32](https://user-images.githubusercontent.com/22095754/45894595-1dc30480-bdcf-11e8-9934-e950905c0e2f.png)
 
 Vi har delt nettsiden inn i fire komponenter. App (rosa) er hovedkomponenten (parent), og Navbar, Category og Content er barnekomponenter (blå).
 
@@ -59,6 +59,23 @@ For å teste funksjonalitet sjekket vi at de følgende kriteriene ble oppfylt p�
 3. Når brukeren endrer lydkategori skal den korrekte lyden kunne spilles av (riktig kategori og tab nummer). 
 4. Når brukeren endrer tab (display) skal de korrekte mediaelementene hentes inn. 
 5. Bilde og tekst filer skal lagres hos klienten etter de har blitt hentet inn første gang
+
+## Versjonskontroll
+Vi har brukt Git til versjonskontroll og utviklingsoppgavene er dokumentert i issues. Hver issue ble tildelt en person som hadde ansvar for å gjennomføre denne oppgaven. Vi prøvde til så stor grad som mulig å refere issue nummeret i commits som var knyttet til issuet. Vi benyttet oss av Github sin Project board som vi delte inn i kolonnene To do, In progress og Done. 
+
+## Nyttige ressurser
+
+### React
+* https://codewithmosh.com/p/mastering-react
+* https://reactjs.org/docs/getting-started.html
+
+### Ajax
+* https://github.com/axios/axios
+* https://www.youtube.com/watch?v=ZZS1irWSfxc
+
+### Responsive web design
+* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+* https://css-tricks.com/snippets/css/complete-guide-grid/
 
 ## Kilder
 
